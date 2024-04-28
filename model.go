@@ -29,21 +29,16 @@ func newModel() model {
 
 type model struct {
 	spinner  spinner.Model
-	madeCall bool
 }
 
 func (m model) Init() tea.Cmd {
+    go m.getData(&data, &gotData)
 	return m.spinner.Tick
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	var cmd tea.Cmd
-
-	if !m.madeCall {
-		go m.getData(&data, &gotData)
-		m.madeCall = true
-	}
 
 	if quit {
 		cmd = tea.Quit
