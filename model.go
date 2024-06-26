@@ -28,11 +28,11 @@ func newModel() model {
 }
 
 type model struct {
-	spinner  spinner.Model
+	spinner spinner.Model
 }
 
 func (m model) Init() tea.Cmd {
-    go m.getData(&data, &gotData)
+	go m.getData(&data, &gotData)
 	return m.spinner.Tick
 }
 
@@ -83,9 +83,9 @@ func randomSpinner() spinner.Spinner {
 		//spinner.Hamburger,
 		//spinner.MiniDot,
 		//spinner.Ellipsis,
-        gamePadSpinner(),
-        circleSliceSpinner(),
-        pleaseWaitSpinner(),
+		gamePadSpinner(),
+		circleSliceSpinner(),
+		pleaseWaitSpinner(),
 	}
 
 	return spinners[rand.Intn(len(spinners))]
@@ -122,34 +122,34 @@ func TermWidth() int {
 }
 
 func gamePadSpinner() spinner.Spinner {
-    return spinner.Spinner{
-        Frames: []string{"󰸴", "󰸵", "󰸸", "󰸷"},
-        FPS: time.Second / 4,
-    }
+	return spinner.Spinner{
+		Frames: []string{"󰸴", "󰸵", "󰸸", "󰸷"},
+		FPS:    time.Second / 4,
+	}
 }
 
 func circleSliceSpinner() spinner.Spinner {
-    return spinner.Spinner{
-        Frames: []string{"󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"},
-        FPS: time.Second / 8,
-    }
+	return spinner.Spinner{
+		Frames: []string{"󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"},
+		FPS:    time.Second / 8,
+	}
 }
 
 func pleaseWaitSpinner() spinner.Spinner {
-    return spinner.Spinner{
-        Frames: []string{
-            "please wait",
-            "Please wait",
-            "pLease wait",
-            "plEase wait",
-            "pleAse wait",
-            "pleaSe wait",
-            "pleasE wait",
-            "please Wait",
-            "please wAit",
-            "please waIt",
-            "please waiT",
-        },
-        FPS: time.Second / 11,
-    }
+	return spinner.Spinner{
+		Frames: []string{
+			"please wait",
+			"Please wait",
+			"pLease wait",
+			"plEase wait",
+			"pleAse wait",
+			"pleaSe wait",
+			"pleasE wait",
+			"please Wait",
+			"please wAit",
+			"please waIt",
+			"please waiT",
+		},
+		FPS: time.Second / 11,
+	}
 }

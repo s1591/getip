@@ -7,8 +7,6 @@ import (
 	"time"
 )
 
-var URL string = "https://freeipapi.com/api/json"
-
 type ipHolder struct {
 	IpVersion     int     `json:"ipVersion"`
 	IpAddress     string  `json:"ipAddress"`
@@ -27,10 +25,12 @@ type ipHolder struct {
 
 func getIp() ipHolder {
 
+	var url string = "https://freeipapi.com/api/json"
+
 	var ipDetails ipHolder
 	http.DefaultClient.Timeout = 15 * time.Second
 
-	resp, err := http.Get(URL)
+	resp, err := http.Get(url)
 	if err != nil {
 		panic(err)
 	}
