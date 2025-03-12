@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 
@@ -90,19 +89,6 @@ func randomSpinner() spinner.Spinner {
 
 	return spinners[rand.Intn(len(spinners))]
 
-}
-
-func dataString(data ipHolder) (ui string) {
-	ui += fmt.Sprintf("IpAddress(ipv%d): %s\n", data.IpVersion, data.IpAddress)
-	ui += fmt.Sprintf("Proxy: %t\n", data.IsProxy)
-	ui += fmt.Sprintf("Latitude and Longitude: %f, %f\n", data.Latitude, data.Longitude)
-	ui += fmt.Sprintf("CityName: %s\n", data.CityName)
-	ui += fmt.Sprintf("RegionName: %s\n", data.RegionName)
-	ui += fmt.Sprintf("ZipCode: %s\n", data.ZipCode)
-	ui += fmt.Sprintf("Country: %s(%s)\n", data.Country, data.CountryCode)
-	ui += fmt.Sprintf("Continent: %s(%s)\n", data.Continent, data.ContinentCode)
-	ui += fmt.Sprintf("TimeZone: %s", data.TimeZone)
-	return
 }
 
 func termSize() [2]int {
